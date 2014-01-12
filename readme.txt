@@ -24,7 +24,7 @@ The plugin [Jetpack Lite](http://wordpress.org/plugins/jetpack-lite/) used to be
 
 The last version of Jetpack Lite that was coded that way was [2.3.4.1](http://wordpress.org/plugins/jetpack-lite/changelog/).
 
-From version 3.0 [Samuel Aguilera](http://profiles.wordpress.org/samuelaguilera/), the developer of Jetpack Lite, made a radical change to his plugin. Instead of a standalone plugin with a minimal footprint, Jetpack Lite became dependant on Jetpack (with a huge footprint), which therefore needs to be installed too.
+From version 3.0 [Samuel Aguilera](http://profiles.wordpress.org/samuelaguilera/), the developer of Jetpack Lite, made a radical change to his plugin. Instead of a standalone plugin with a minimal footprint, Jetpack Lite became depending on Jetpack (with a huge footprint), and which therefore needs to be installed too.
 
 And although with Jetpack Lite installed the total footprint of Jetpack decreases somewhat, compared to version 2.3.4.1 of Jetpack Lite the additional loading times are just not worth it.
 
