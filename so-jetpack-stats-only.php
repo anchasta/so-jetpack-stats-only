@@ -39,7 +39,7 @@ require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-client-server.php' );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-sync.php'          );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-options.php'       );
 // SAR: Removed call to class.jetpack-user-agent.php (used for mobile stuff)
-require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-post-images.php'   ); // SAR: Dont remove it! needed for stats widget
+//require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-post-images.php'   ); // SAR: Dont remove it! needed for stats widget
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-error.php'         );
 //require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-debugger.php'      );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-heartbeat.php'     );
