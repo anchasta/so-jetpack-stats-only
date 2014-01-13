@@ -403,13 +403,8 @@ class Jetpack_Sync {
 		if ( !$post_obj )
 			return false;
 
-		if ( is_callable( $post_obj, 'to_array' ) ) {
-			// WP >= 3.5
-			$post = $post_obj->to_array();
-		} else {
-			// WP < 3.5
-			$post = get_object_vars( $post_obj );
-		}
+		// clean up conditional WP >= 3.5, because SO Jetpack Stats Only needs > 3.6
+		$post = $post_obj->to_array();
 
 		if ( 0 < strlen( $post['post_password'] ) ) {
 			$post['post_password'] = 'auto-' . wp_generate_password( 10, false ); // We don't want the real password.  Just pass something random.
