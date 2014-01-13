@@ -138,12 +138,12 @@ class Jetpack_Client_Server {
 		$role = $jetpack->translate_current_user_to_role();
 
 		if ( !$role ) {
-			return new Jetpack_Error( 'role', __( 'An administrator for this blog must set up the Jetpack connection.', 'jetpack' ) );
+			return new Jetpack_Error( 'role', __( 'An administrator for this blog must set up the Jetpack connection.', 'so-jetpack-stats-only' ) );
 		}
 
 		$client_secret = Jetpack_Data::get_access_token();
 		if ( !$client_secret ) {
-			return new Jetpack_Error( 'client_secret', __( 'You need to register your Jetpack before connecting it.', 'jetpack' ) );
+			return new Jetpack_Error( 'client_secret', __( 'You need to register your Jetpack before connecting it.', 'so-jetpack-stats-only' ) );
 		}
 
 		$redirect = isset( $data['redirect'] ) ? esc_url_raw( (string) $data['redirect'] ) : '';
@@ -185,7 +185,7 @@ class Jetpack_Client_Server {
 			if ( empty( $json->error ) )
 				return new Jetpack_Error( 'unknown', '', $code );
 
-			$error_description = isset( $json->error_description ) ? sprintf( __( 'Error Details: %s', 'jetpack' ), (string) $json->error_description ) : '';
+			$error_description = isset( $json->error_description ) ? sprintf( __( 'Error Details: %s', 'so-jetpack-stats-only' ), (string) $json->error_description ) : '';
 
 			return new Jetpack_Error( (string) $json->error, $error_description, $code );
 		}
