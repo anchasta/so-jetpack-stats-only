@@ -17,6 +17,10 @@ The SO Jetpack Stats Only plugin is a fork of Jetpack with only the Stats Module
 
 The plugin is a full fork of Jetpack and it is therefore not necessary to have Jetpack itself installed. Actually, if you would do that, then things will rapidly fall apart :)
 
+### Development Branch
+
+From now on I will do all work on this plugin in this Development Branch (that you are viewing right now) and keep the Master Branch in sync with the stable release on WordPress.org. If you are interested in collaborating , please go ahead and fork the plugin and make sure that you work on this Development Branch.
+
 ### Background
 
 The plugin [Jetpack Lite](http://wordpress.org/plugins/jetpack-lite/) used to be a fork of Jetpack which only enabled the Stats, Shortlink and Widgets Modules. 
