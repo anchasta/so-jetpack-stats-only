@@ -1,7 +1,7 @@
 === SO Jetpack Stats Only ===
 Contributor: senlin
 Donate link: http://so-wp.com/donations
-Tags: related posts
+Tags: jetpack, stats
 Requires at least: 3.6
 Tested up to: 3.9-alpha
 Stable tag: 2014.01.12
