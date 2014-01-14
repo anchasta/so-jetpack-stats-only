@@ -39,6 +39,7 @@ require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-client-server.php' );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-sync.php'          );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-options.php'       );
 // SAR: Removed call to class.jetpack-user-agent.php (used for mobile stuff)
+//SO: no need for this, we disabled the widgets too!
 //require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-post-images.php'   ); // SAR: Dont remove it! needed for stats widget
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-error.php'         );
 //require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-debugger.php'      );
@@ -53,13 +54,5 @@ register_deactivation_hook( __FILE__, array( 'Jetpack', 'plugin_deactivation' ) 
 
 add_action( 'init', array( 'Jetpack', 'init' ) );
 add_action( 'plugins_loaded', array( 'Jetpack', 'load_modules' ), 100 );
-//add_filter( 'jetpack_static_url', array( 'Jetpack', 'staticize_subdomain' ) );
-
-/*
-if ( is_admin() && ! Jetpack::check_identity_crisis() ) {
-	Jetpack_Sync::sync_options( __FILE__, 'db_version', 'jetpack_active_modules', 'active_plugins' );
-}
-*/
-
-
-// SAR: Removed sync_optios for widget_twitter
+// SO refers to line 2991 of class.jetpack.php not sure whether we need this or not, leave it in for now
+add_filter( 'jetpack_static_url', array( 'Jetpack', 'staticize_subdomain' ) );
