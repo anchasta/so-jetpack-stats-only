@@ -1435,11 +1435,9 @@ p {
 				'title'		=> __( 'Stats Module', 'so-jetpack-stats-only' ),
 				'content'	=> 
 					'<p><strong>' . __( 'SO Jetpack Stats Only', 'so-jetpack-stats-only' ) . '</strong></p>' .
-					'<p>' . __( 'You can activate or deactivate the Jetpack Stats module to suit your needs.', 'so-jetpack-stats-only' ) . '</p>' .
 					'<ol>' .
 						'<li>' . __( 'If you\'re not connected yet, first connect your site to WordPress.com', 'so-jetpack-stats-only' ) . '</li>' .
-						'<li>' . __( 'An Activate or Deactivate button will appear','jetpack' ) . '</li>' .
-						'<li>' . __( 'After activation a Configuration button will appear.', 'so-jetpack-stats-only' ) . '</li>' .
+						'<li>' . __( 'After you have connected, a Configuration button will appear.', 'so-jetpack-stats-only' ) . '</li>' .
 					'</ol>'
 			) );
 		}
