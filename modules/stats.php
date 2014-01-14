@@ -496,7 +496,7 @@ function stats_convert_post_title( $matches ) {
 function stats_configuration_load() {
 	if ( isset( $_POST['action'] ) && $_POST['action'] == 'save_options' && $_POST['_wpnonce'] == wp_create_nonce( 'stats' ) ) {
 		$options = stats_get_options();
-		$options['admin_bar']  = isset( $_POST['admin_bar']  ) && $_POST['admin_bar'];
+		//$options['admin_bar']  = isset( $_POST['admin_bar']  ) && $_POST['admin_bar']; SO remove as chart in topbar is fluff in my opinion
 		$options['hide_smile'] = isset( $_POST['hide_smile'] ) && $_POST['hide_smile'];
 
 		$options['roles'] = array( 'administrator' );
@@ -541,8 +541,10 @@ function stats_configuration_screen() {
 		<input type='hidden' name='action' value='save_options' />
 		<?php wp_nonce_field( 'stats' ); ?>
 		<table id="menu" class="form-table">
-		<tr valign="top"><th scope="row"><label for="admin_bar"><?php _e( 'Admin bar' , 'so-jetpack-stats-only' ); ?></label></th>
-		<td><label><input type='checkbox'<?php checked( $options['admin_bar'] ); ?> name='admin_bar' id='admin_bar' /> <?php _e( "Put a chart showing 48 hours of views in the admin bar.", 'so-jetpack-stats-only' ); ?></label></td></tr>
+		<!-- SO: Remove option as it is fluff in my opinion
+<tr valign="top"><th scope="row"><label for="admin_bar"><?php _e( 'Admin bar' , 'so-jetpack-stats-only' ); ?></label></th>
+		<td><label><input type='checkbox'<?php checked( $options['admin_bar'] ); ?> name='admin_bar' id='admin_bar' /> <?php _e( 'Put a chart showing 48 hours of views in the admin bar.', 'so-jetpack-stats-only' ); ?></label></td></tr>
+-->
 		<tr valign="top"><th scope="row"><?php _e( 'Registered users', 'so-jetpack-stats-only' ); ?></th>
 		<td>
 			<?php _e( 'Count the page views of registered users who are logged in.', 'so-jetpack-stats-only' ); ?><br/>
