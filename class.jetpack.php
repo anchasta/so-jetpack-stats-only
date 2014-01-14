@@ -1438,7 +1438,6 @@ p {
 					'<p>' . __( 'You can activate or deactivate the Jetpack Stats module to suit your needs.', 'so-jetpack-stats-only' ) . '</p>' .
 					'<ol>' .
 						'<li>' . __( 'If you\'re not connected yet, first connect your site to WordPress.com', 'so-jetpack-stats-only' ) . '</li>' .
-						'<li>' . __( 'After you are connected to WordPress.com you can click on Learn More', 'so-jetpack-stats-only' ) . '</li>' .
 						'<li>' . __( 'An Activate or Deactivate button will appear','jetpack' ) . '</li>' .
 						'<li>' . __( 'After activation a Configuration button will appear.', 'so-jetpack-stats-only' ) . '</li>' .
 					'</ol>'
@@ -1791,7 +1790,7 @@ p {
 
 		case 'module_activated' :
 			if ( $module = Jetpack::get_module( Jetpack::state( 'module' ) ) ) {
-				$this->message = sprintf( __( '<strong>%s Activated!</strong> You can deactivate at any time by clicking Learn More and then Deactivate on the module card.', 'so-jetpack-stats-only' ), $module['name'] );
+				$this->message = sprintf( __( '<strong>%s Activated!</strong>', 'so-jetpack-stats-only' ), $module['name'] );
 				$this->stat( 'module-activated', Jetpack::state( 'module' ) );
 			}
 			break;
@@ -2297,7 +2296,7 @@ p {
 			<h3>
 			<?php
 				$module = Jetpack::get_module( $module_id ); // SAR: Added "lite"
-				echo '<a href="' . menu_page_url( 'jetpack', false ) . '">' . __( 'Jetpack Lite', 'so-jetpack-stats-only' ) . '</a> &rarr; ';
+				echo '<a href="' . menu_page_url( 'jetpack', false ) . '">' . __( 'SO Jetpack Stats Only', 'so-jetpack-stats-only' ) . '</a> &rarr; ';
 				printf( __( 'Configure %s', 'so-jetpack-stats-only' ), $module['name'] );
 			?>
 			</h3>
