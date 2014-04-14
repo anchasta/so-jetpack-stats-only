@@ -13,7 +13,7 @@ The SO Jetpack Stats Only plugin is a fork of Jetpack with only the Stats Module
 
 ** This plugin is NOT the official [Jetpack](http://jetpack.me/) plugin by WordPress.com **
 
-<strong>IMPORTANT:</strong> since Jetpack updated to 2.9.3 the build in some kind of version check that makes it impossible for <strong>new users</strong> to activate the Stats component of the SO Jetpack Stats Only plugin. (see [issue #2](https://github.com/senlin/so-jetpack-stats-only/issues/2))
+<strong>IMPORTANT:</strong> since WordPress updated to 2.8.2 they built in some kind of version check that makes it impossible for <strong>new users</strong> to activate the Stats component of the SO Jetpack Stats Only plugin. (see [issue #2](https://github.com/senlin/so-jetpack-stats-only/issues/2))
 We are currently working on a new fork and apologise for any inconvenience.
 
 The SO Jetpack Stats Only plugin is a fork of Jetpack with only the Stats Module enabled. All the rest of the modules of Jetpack have been removed. 
