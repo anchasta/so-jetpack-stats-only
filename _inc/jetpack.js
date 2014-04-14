@@ -158,7 +158,7 @@ jetpack = {
 				// More info box does not exist.
 				} else {
 					// Insert the box.
-					jQuery( el ).after( '<div id="message" class="more-info jetpack-message"><div class="arrow"></div><div class="jp-content"></div><div class="clear"></div></div>' );
+					jQuery( el ).after( '<div id="message" class="more-info jetpack-message"><div class="arrow"></div><div class="jp-content"></div><div class="jp-close">&times;</div><div class="clear"></div></div>' );
 
 					// Show the box
 					jQuery( 'div.more-info' ).css( { height: '230px', minHeight: 0 } );

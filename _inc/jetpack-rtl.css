@@ -67,6 +67,15 @@
 	background: transparent url(images/header-clouds-sm.png) bottom right repeat-x;
 }
 
+.more-info .jp-close {
+	left: 0;
+	right: auto;
+	padding: 0 6px 0 4px;
+	border-radius: 3px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
 .more-info div.jp-info-img {
 	float: left;
 	margin: 0 20px 0 30px;

@@ -1,8 +1,8 @@
 # SO Jetpack Stats Only
 
-###### Last updated on 2014.01.12
-###### requires at least WordPress 3.6
-###### tested up to WordPress 3.9-alpha
+###### Last updated on 2014.04.14
+###### requires at least WordPress 3.7
+###### tested up to WordPress 3.9-RC1
 ###### Author: [Piet Bos](https://github.com/senlin)
 ###### [Stable Version](http://wordpress.org/plugins/so-jetpack-stats-only) (via WordPress Plugins Repository)
 ###### [Plugin homepage](http://so-wp.com/?p=71)
@@ -16,10 +16,11 @@ The SO Jetpack Stats Only plugin is a fork of Jetpack with only the Stats Module
 <strong>IMPORTANT:</strong> since WordPress updated to 2.8.2 they built in some kind of version check that makes it impossible for <strong>new users</strong> to activate the Stats component of the SO Jetpack Stats Only plugin. (see [issue #2](https://github.com/senlin/so-jetpack-stats-only/issues/2))
 We are currently working on a new fork and apologise for any inconvenience.
 
-The SO Jetpack Stats Only plugin is a fork of Jetpack with only the Stats Module enabled. All the rest of the modules of Jetpack have been removed. 
+The SO Jetpack Stats Only plugin is a fork of Jetpack 2.9.3 with only the Stats Module enabled. All the rest of the modules of Jetpack have been removed. 
 
 The plugin is a full fork of Jetpack and it is therefore not necessary to have Jetpack itself installed. Actually, if you would do that, then things will rapidly fall apart :)
 
+<<<<<<< HEAD
 ### Development Branch
 
 From now on I will do all work on this plugin in the Development Branch and keep this Master Branch (that you are viewing right now) in sync with the stable release on WordPress.org. If you are interested in collaborating then head over to the Development Branch.
@@ -38,6 +39,8 @@ Therefore I have decided to fork the last standalone version of Jetpack Lite (2.
 
 Over time I will try to remove as much bloat as possible to keep this a lightweight Jetpack Stats Only WordPress plugin.
 
+=======
+>>>>>>> jetpack-2.8
 ## Frequently Asked Questions
 
 ### I have an issue with the Stats Module of Jetpack, where can I get support?
@@ -72,6 +75,10 @@ This repo is open to _any_ kind of contributions.
 [Website](http://senlinonline.com)
 
 ## Changelog
+
+### 2014.04.14
+
+* new fork of Jetpack 2.9.3, which addresses the issue that new users could no longer activate version 2014.01.12 as reported on Github [issue 2](https://github.com/senlin/so-jetpack-stats-only/issues/2)
 
 ### 2014.01.12
 
