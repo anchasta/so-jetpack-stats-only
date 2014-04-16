@@ -2,7 +2,7 @@
 
 ###### Last updated on 2014.04.16
 ###### requires at least WordPress 3.7
-###### tested up to WordPress 3.9-RC1
+###### tested up to WordPress 3.9
 ###### Author: [Piet Bos](https://github.com/senlin)
 ###### [Stable Version](http://wordpress.org/plugins/so-jetpack-stats-only) (via WordPress Plugins Repository)
 ###### [Plugin homepage](http://so-wp.com/?p=71)
