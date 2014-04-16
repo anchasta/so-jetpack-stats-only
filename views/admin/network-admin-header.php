@@ -2,7 +2,7 @@
 
 			<div id="jp-header"<?php if ( $is_connected ) : ?> class="small"<?php endif; ?>>
 				<div id="jp-clouds">
-					<h3><?php _e( 'Jetpack by WordPress.com', 'jetpack' ) ?></h3>
+					<h3><?php _e( 'SO Jetpack Stats Only', 'jetpack' ) ?></h3>
 				</div>
 			</div>
 

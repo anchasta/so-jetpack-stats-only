@@ -3,8 +3,8 @@ Contributors: senlin
 Donate link: http://so-wp.com/donations
 Tags: jetpack, stats
 Requires at least: 3.7
-Tested up to: 3.9-RC1
-Stable tag: 2014.04.14
+Tested up to: 3.9
+Stable tag: 2014.04.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,11 @@ Done!
 
 == Frequently Asked Questions ==
 
+= I received an email from "Jetpack by WordPress.com" that says if I don't update to Jetpack 2.9.3 the Stats Module may stop working; what should I do? =
+
+We have received those emails too and have therefore forked Jetpack 2.9.3 (for our version 2014.04.14). In our fork we adjusted the coded version to our own version number, and as that is not the same as Jetpack, they send out these emails to you. In version 2014.04.16 we have adjusted that and at the same time did some more cleaning up.
+In other words, if you install the latest version of SO Jetpack Stats Only, you don't have to worry that your Site Stats will vanish.
+
 = I have an issue with the Stats Module of Jetpack, where can I get support? =
 
 The SO Jetpack Stats Only plugin is a fork of Jetpack and removes all the other modules; it does not do anything functional to/with Jetpack. Therefore any and all Jetpack related issues, should be directed to [Jetpack](http://jetpack.me/support/wordpress-com-stats/).
@@ -53,6 +58,16 @@ Please open an issue on [Github](https://github.com/senlin/so-jetpack-stats-only
 
 == Changelog ==
 
+= 2014.04.16 =
+
+* adjusted Jetpack version definition (to 2.9.3) to comply to new Jetpack "rules" (i.e. warning emails that threaten to turn off the service)
+* some bug fixes
+* adjusted text in some strings
+* remove 3rd-party folder: bloat
+* removed _inc/lib folder: bloat
+* removed redundant scripts
+* edited FAQ
+
 = 2014.04.14 =
 
 * new fork of Jetpack 2.9.3, which addresses the issue that new users could no longer activate version 2014.01.12 as reported on Github [issue 2](https://github.com/senlin/so-jetpack-stats-only/issues/2)
@@ -60,3 +75,9 @@ Please open an issue on [Github](https://github.com/senlin/so-jetpack-stats-only
 = 2014.01.12 =
 
 * first release
+
+== Upgrade Notice ==
+
+= 2014.04.16 =
+
+* adjusted Jetpack version definition (to 2.9.3) to comply to new Jetpack "rules" (i.e. warning emails that threaten to turn off the service) 

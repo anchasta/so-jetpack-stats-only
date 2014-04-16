@@ -578,6 +578,32 @@ function stats_hide_smile_css() { ?>
 	<style type='text/css'>img#wpstats{display:none}</style>
 <?php }
 
+function stats_update_blog() {
+	Jetpack::xmlrpc_async_call( 'jetpack.updateBlog', stats_get_blog() );
+}
+
+function stats_get_blog() {
+	$home = parse_url( trailingslashit( get_option( 'home' ) ) );
+	$blog = array(
+		'host'                => $home['host'],
+		'path'                => $home['path'],
+		'blogname'            => get_option( 'blogname' ),
+		'blogdescription'     => get_option( 'blogdescription' ),
+		'siteurl'             => get_option( 'siteurl' ),
+		'gmt_offset'          => get_option( 'gmt_offset' ),
+		'timezone_string'     => get_option( 'timezone_string' ),
+		'stats_version'       => STATS_VERSION,
+		'stats_api'           => 'jetpack',
+		'page_on_front'       => get_option( 'page_on_front' ),
+		'permalink_structure' => get_option( 'permalink_structure' ),
+		'category_base'       => get_option( 'category_base' ),
+		'tag_base'            => get_option( 'tag_base' ),
+	);
+	$blog = array_merge( stats_get_options(), $blog );
+	unset( $blog['roles'], $blog['blog_id'] );
+	return stats_esc_html_deep( $blog );
+}
+
 /**
  * Modified from stripslashes_deep()
  */

@@ -34,10 +34,3 @@ function stats_more_info_connected() { ?>
 <?php
 }
 add_action( 'jetpack_module_more_info_connected_stats', 'stats_more_info_connected' );
-
-/*
-function stats_load_more_link( $description ) {
-	echo '<a class="button-secondary more-info-link" href="http://en.support.wordpress.com/stats/">' . esc_html__( 'Learn More', 'jetpack' ) . '</a>';
-}
-add_filter( 'jetpack_learn_more_button_stats', 'stats_load_more_link' );
-*/

@@ -1,9 +1,9 @@
 <?php
 /*
- * Plugin Name: SO Jetpack Stats Only (modified Jetpack 2.9.3)
+ * Plugin Name: SO Jetpack Stats Only
  * Plugin URI: http://so-wp.com/?p=71
  * Description: The SO Jetpack Stats Only plugin is a fork of Jetpack 2.9.3, but with a minimal footprint, and shows the Stats dashboard widget only.
- * Version: 2014.04.14
+ * Version: 2014.04.16
  * Author: Piet Bos
  * Author URI: http://senlinonline.com
  * Text Domain: so-jetpack-stats-only
@@ -11,7 +11,7 @@
  */
 
 define( 'JETPACK__MINIMUM_WP_VERSION', '3.7' );
-define( 'JETPACK__VERSION',            '2014.04.14' );
+define( 'JETPACK__VERSION',            '2.9.3' ); // 2014.04.16 adjusted Jetpack version definition to get rid of Jetpack warning emails
 define( 'JETPACK_MASTER_USER',         true );
 define( 'JETPACK__API_VERSION',        1 );
 define( 'JETPACK__PLUGIN_DIR',         plugin_dir_path( __FILE__ ) );
@@ -40,17 +40,10 @@ require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-client-server.php' );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-sync.php'          );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-options.php'       );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-user-agent.php'    );
-//require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-post-images.php'   ); --> moved to removed-files folder
-//require_once( JETPACK__PLUGIN_DIR . 'class.media-extractor.php'       ); --> moved to removed-files folder
-//require_once( JETPACK__PLUGIN_DIR . 'class.media-summary.php'         ); --> moved to removed-files folder
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-error.php'         );
-//require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-debugger.php'      ); --> moved to removed-files folder
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-heartbeat.php'     );
-//require_once( JETPACK__PLUGIN_DIR . 'class.photon.php'                ); --> moved to removed-files folder
-//require_once( JETPACK__PLUGIN_DIR . 'functions.photon.php'            ); --> moved to removed-files folder
 require_once( JETPACK__PLUGIN_DIR . 'functions.compat.php'            );
-//require_once( JETPACK__PLUGIN_DIR . 'functions.gallery.php'           ); --> moved to removed-files folder
-require_once( JETPACK__PLUGIN_DIR . 'require-lib.php'                 );
+//require_once( JETPACK__PLUGIN_DIR . 'require-lib.php'                 );
 
 // Play nice with http://wp-cli.org/
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
@@ -64,22 +57,3 @@ add_action( 'init', array( 'Jetpack', 'init' ) );
 add_action( 'plugins_loaded', array( 'Jetpack', 'load_modules' ), 100 );
 // SO refers to line 2991 of class.jetpack.php not sure whether we need this or not, leave it in for now
 add_filter( 'jetpack_static_url', array( 'Jetpack', 'staticize_subdomain' ) );
-
-/**
- * Add an easy way to photon-ize a URL that is safe to call even if Jetpack isn't active.
- *
- * See: http://jetpack.me/2013/07/11/photon-and-themes/
- */
-/*
-if ( Jetpack::is_module_active( 'photon' ) ) {
-	add_filter( 'jetpack_photon_url', 'jetpack_photon_url', 10, 3 );
-}
-*/
-
-/*
-if ( is_admin() && ! Jetpack::check_identity_crisis() ) {
-	Jetpack_Sync::sync_options( __FILE__, 'db_version', 'jetpack_active_modules', 'active_plugins' );
-}
-*/
-
-require_once( JETPACK__PLUGIN_DIR . '3rd-party/3rd-party.php' );
