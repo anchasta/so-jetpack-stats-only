@@ -3,7 +3,7 @@
  * Plugin Name: SO Jetpack Stats Only
  * Plugin URI: http://so-wp.com/?p=71
  * Description: The SO Jetpack Stats Only plugin is a fork of Jetpack 2.9.3, but with a minimal footprint, and shows the Stats dashboard widget only.
- * Version: 2014.04.16
+ * Version: 2014.04.16a
  * Author: Piet Bos
  * Author URI: http://senlinonline.com
  * Text Domain: so-jetpack-stats-only

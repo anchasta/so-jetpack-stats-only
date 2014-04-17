@@ -1,6 +1,6 @@
 # SO Jetpack Stats Only
 
-###### Last updated on 2014.04.16
+###### Last updated on 2014.04.16a
 ###### requires at least WordPress 3.7
 ###### tested up to WordPress 3.9
 ###### Author: [Piet Bos](https://github.com/senlin)
@@ -56,6 +56,10 @@ This repo is open to _any_ kind of contributions.
 [Website](http://senlinonline.com)
 
 ## Changelog
+
+### 2014.04.16a
+
+* bug fix of warning that only showed when debug was set to `true`
 
 ### 2014.04.16
 

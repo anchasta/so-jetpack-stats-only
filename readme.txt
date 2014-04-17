@@ -4,7 +4,7 @@ Donate link: http://so-wp.com/donations
 Tags: jetpack, stats
 Requires at least: 3.7
 Tested up to: 3.9
-Stable tag: 2014.04.16
+Stable tag: 2014.04.16a
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,10 @@ Please open an issue on [Github](https://github.com/senlin/so-jetpack-stats-only
 
 
 == Changelog ==
+
+= 2014.04.16a =
+
+* bug fix of warning that only showed when debug was set to `true`. Apologies for the inconvenience of 2 updates in 1 day.
 
 = 2014.04.16 =
 

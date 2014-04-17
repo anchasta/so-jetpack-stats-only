@@ -339,7 +339,6 @@ class Jetpack {
 		add_filter( 'map_meta_cap', array( $this, 'jetpack_custom_caps' ), 1, 4 );
 
 		add_filter( 'jetpack_get_default_modules', array( $this, 'filter_default_modules' ) );
-		add_filter( 'jetpack_get_default_modules', array( $this, 'handle_deprecated_modules' ), 99 );
 	}
 
 	/**
@@ -839,51 +838,6 @@ class Jetpack {
 			}
 		}
 		return apply_filters( 'jetpack_get_default_modules', $return, $min_version, $max_version );
-	}
-
-	/**
-	 * Checks activated modules during auto-activation to determine
-	 * if any of those modules are being deprecated.  If so, close
-	 * them out, and add any replacement modules.
-	 *
-	 * Runs at priority 99 by default.
-	 *
-	 * This is run late, so that it can still activate a module if
-	 * the new module is a replacement for another that the user
-	 * currently has active, even if something at the normal priority
-	 * would kibosh everything.
-	 *
-	 * @since 2.6
-	 * @uses jetpack_get_default_modules filter
-	 * @param array $modules
-	 * @return array
-	 */
-	function handle_deprecated_modules( $modules ) {
-		$deprecated_modules = array(
-			'debug' => null,  // Closed out and moved to ./class.jetpack-debugger.php
-			'wpcc'  => 'sso', // Closed out in 2.6 -- SSO provides the same functionality.
-		);
-
-		// Don't activate SSO if they never completed activating WPCC.
-		
-		// NEVER ACTIVATE THIS PERIOD, so remove the condition
-		//if ( Jetpack::is_module_active( 'wpcc' ) ) {
-			$wpcc_options = Jetpack_Options::get_option( 'wpcc_options' );
-			if ( empty( $wpcc_options ) || empty( $wpcc_options['client_id'] ) || empty( $wpcc_options['client_id'] ) ) {
-				$deprecated_modules['wpcc'] = null;
-			}
-		//}
-
-		foreach ( $deprecated_modules as $module => $replacement ) {
-			if ( Jetpack::is_module_active( $module ) ) {
-				self::deactivate_module( $module );
-				if ( $replacement ) {
-					$modules[] = $replacement;
-				}
-			}
-		}
-
-		return array_unique( $modules );
 	}
 
 	/**
