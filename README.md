@@ -1,10 +1,9 @@
 # SO Jetpack Stats Only
 
-###### Last updated on 2014.04.16a
+###### Last updated on 2014.06.17
 ###### requires at least WordPress 3.7
 ###### tested up to WordPress 3.9
 ###### Author: [Piet Bos](https://github.com/senlin)
-###### [Stable Version](http://wordpress.org/plugins/so-jetpack-stats-only) (via WordPress Plugins Repository)
 ###### [Plugin homepage](http://so-wp.com/?p=71)
 
 The SO Jetpack Stats Only plugin is a fork of Jetpack with only the Stats Module enabled. All the rest of the modules of Jetpack have been removed.
@@ -18,6 +17,10 @@ The SO Jetpack Stats Only plugin is a fork of Jetpack 2.9.3 with only the Stats 
 The plugin is a full fork of Jetpack and it is therefore not necessary to have Jetpack itself installed. Actually, if you would do that, then things will rapidly fall apart :)
 
 ## Frequently Asked Questions
+
+### I can no longer find the plugin over at WordPress.org, why is that?
+
+Since June 2014 I have decided to no longer host the plugin via the WordPress.org Repository and **only here on Github**. There are a few reasons for that decision which you can read about on [my website](http://so-wp.com/?p=71).
 
 ### I received an email from "Jetpack by WordPress.com" that says if I don't update to Jetpack 2.9.3 the Stats Module may stop working; what should I do?
 
@@ -56,6 +59,10 @@ This repo is open to _any_ kind of contributions.
 [Website](http://senlinonline.com)
 
 ## Changelog
+
+### 2014.06.17
+
+* adjust readme.md to explain why I pulled the plugin from the WordPress.org Repo
 
 ### 2014.04.16a
 

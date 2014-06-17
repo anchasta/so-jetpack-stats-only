@@ -536,8 +536,8 @@ function stats_configuration_screen() {
 		<input type='hidden' name='action' value='save_options' />
 		<?php wp_nonce_field( 'stats' ); ?>
 		<table id="menu" class="form-table">
-		<tr valign="top"><th scope="row"><label for="admin_bar"><?php _e( 'Admin bar' , 'jetpack' ); ?></label></th>
-		<td><label><?php _e( 'Bloat, you know exactly where you can find your stats.', 'so-jetpack-stats-only' ); ?></label></td></tr>
+		<tr valign="top"><th scope="row"><label for="admin_bar"><?php _e( 'Little chart in admin bar' , 'jetpack' ); ?></label></th>
+		<td><label><?php printf( __( 'Bloat, you know exactly where you can find your stats. However, if you want this feature back, you can vote for it <a href="%s">here</a>.', 'so-jetpack-stats-only' ), esc_url( 'https://github.com/senlin/so-jetpack-stats-only/issues/4' ) ); ?></label></td></tr>
 		<tr valign="top"><th scope="row"><?php _e( 'Registered users', 'jetpack' ); ?></th>
 		<td>
 			<?php _e( "Count the page views of registered users who are logged in.", 'jetpack' ); ?><br/>
@@ -551,10 +551,6 @@ function stats_configuration_screen() {
 			?>
 		</td></tr>
 
-		<tr valign="top"><th scope="row"><?php _e( 'Smiley' , 'jetpack' ); ?></th>
-		<td><label><?php _e( 'Removed the stupid and very unprofessional smiley "option".', 'so-jetpack-stats-only' ); ?></label></td>
-		</tr>
-		
 		<tr valign="top"><th scope="row"><?php _e( 'Report visibility' , 'jetpack' ); ?></th>
 		<td>
 			<?php _e( 'Select the roles that will be able to view stats reports.', 'jetpack' ); ?><br/>

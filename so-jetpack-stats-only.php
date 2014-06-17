@@ -10,15 +10,55 @@
  * Domain Path: /languages/
  */
 
-define( 'JETPACK__MINIMUM_WP_VERSION', '3.7' );
-define( 'JETPACK__VERSION',            '2.9.3' ); // 2014.04.16 adjusted Jetpack version definition to get rid of Jetpack warning emails
-define( 'JETPACK_MASTER_USER',         true );
-define( 'JETPACK__API_VERSION',        1 );
-define( 'JETPACK__PLUGIN_DIR',         plugin_dir_path( __FILE__ ) );
+/**
+ * This function checks whether the Jetpack plugin is active (should not be active)
+ * if it is it disables Jetpack and activates SO Jetpack Stats Only.
+ *
+ * modified using http://wpengineer.com/1657/check-if-required-plugin-is-active/ and the _no_wpml_warning function (of WPML)
+ *
+ * @since 2014.04.18
+ */
+
+$plugins = get_option( 'active_plugins' );
+
+$redundant_plugin = 'jetpack/jetpack.php';
+
+// multisite throws the error message by default, because the plugin is installed on the network site, therefore check for multisite
+if ( in_array( $redundant_plugin , $plugins ) && ! is_multisite() ) {
+
+	add_action( 'admin_init', 'sojpso_disable_jetpack', 1 );
+	add_action( 'admin_notices', 'sojpso_disable_jetpack_notice', 1 );
+
+} else {
+
+	define( 'JETPACK__MINIMUM_WP_VERSION', '3.7' );
+	define( 'JETPACK__VERSION',            '2.9.3' ); // 2014.04.16 adjusted Jetpack version definition to get rid of Jetpack warning emails
+	define( 'JETPACK_MASTER_USER',         true );
+	define( 'JETPACK__API_VERSION',        1 );
+	define( 'JETPACK__PLUGIN_DIR',         plugin_dir_path( __FILE__ ) );
+	
+}
+
+// Based on Better Solution of http://stephenharris.info/deactivate-other-plug-ins-on-deactivation/
+function sojpso_disable_jetpack() {
+	$redundant = 'jetpack/jetpack.php';
+	deactivate_plugins( $redundant );
+}
+
+function sojpso_disable_jetpack_notice() {
+
+	// display the warning message
+	echo '<div class="message error"><p>';
+
+	_e( 'The <strong>SO Jetpack Stats Only plugin</strong> cannot function if you also have the original Jetpack plugin installed. We have therefore deactivated the latter.', 'so-related-posts' );
+
+	echo '</p></div>';
+
+}
+ 
 
 defined( 'JETPACK_CLIENT__AUTH_LOCATION' )   or define( 'JETPACK_CLIENT__AUTH_LOCATION', 'header' );
 defined( 'JETPACK_CLIENT__HTTPS' )           or define( 'JETPACK_CLIENT__HTTPS', 'AUTO' );
-//defined( 'JETPACK__GLOTPRESS_LOCALES_PATH' ) or define( 'JETPACK__GLOTPRESS_LOCALES_PATH', JETPACK__PLUGIN_DIR . 'locales.php' );
 defined( 'JETPACK__API_BASE' )               or define( 'JETPACK__API_BASE', 'https://jetpack.wordpress.com/jetpack.' );
 
 // Constants for expressing human-readable intervals
@@ -43,7 +83,6 @@ require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-user-agent.php'    );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-error.php'         );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-heartbeat.php'     );
 require_once( JETPACK__PLUGIN_DIR . 'functions.compat.php'            );
-//require_once( JETPACK__PLUGIN_DIR . 'require-lib.php'                 );
 
 // Play nice with http://wp-cli.org/
 if ( defined( 'WP_CLI' ) && WP_CLI ) {

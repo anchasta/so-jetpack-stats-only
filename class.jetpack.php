@@ -31,6 +31,7 @@ class Jetpack {
 
 	var $plugins_to_deactivate = array(
 		'stats'              	 => array( 'stats/stats.php', 'WordPress.com Stats' ),
+/*
 		'shortlinks'         	 => array( 'stats/stats.php', 'WordPress.com Stats' ),
 		'sharedaddy'         	 => array( 'sharedaddy/sharedaddy.php', 'Sharedaddy' ),
 		'twitter-widget'     	 => array( 'wickett-twitter-widget/wickett-twitter-widget.php', 'Wickett Twitter Widget' ),
@@ -45,6 +46,7 @@ class Jetpack {
 		'omnisearch'		 => array( 'jetpack-omnisearch/omnisearch.php', 'Jetpack Omnisearch' ),
 		'gravatar-hovercards'	 => array( 'jetpack-gravatar-hovercards/gravatar-hovercards.php', 'Jetpack Gravatar Hovercards' ),
 		'latex'			 => array( 'wp-latex/wp-latex.php', 'WP LaTeX' ),
+*/
 	);
 
 	var $capability_translations = array(
@@ -1874,9 +1876,9 @@ p {
 			'jetpack-js',
 			'jetpackL10n',
 			array(
-				'ays_disconnect' => "This will deactivate all Jetpack modules.\nAre you sure you want to disconnect?",
-				'ays_unlink'     => "This will prevent user-specific modules such as Publicize, Notifications and Post By Email from working.\nAre you sure you want to unlink?",
-				'ays_dismiss'    => "This will deactivate Jetpack.\nAre you sure you want to deactivate Jetpack?",
+				'ays_disconnect' => "This will deactivate the Stats modules.\nAre you sure you want to disconnect?",
+				'ays_unlink'     => "This will prevent SO Jetpack Stats Only from working.\nAre you sure you want to unlink?",
+				'ays_dismiss'    => "This will deactivate SO Jetpack Stats Only.\nAre you sure you want to deactivate SO Jetpack Stats Only?",
 			)
 		);
 		add_action( 'admin_footer', array( $this, 'do_stats' ) );
@@ -1901,7 +1903,7 @@ p {
 
 		<div id="message" class="updated jetpack-message jp-connect" style="display:block !important;">
 			<div id="jp-dismiss" class="jetpack-close-button-container">
-				<a class="jetpack-close-button" href="?page=jetpack&jetpack-notice=dismiss" title="<?php _e( 'Dismiss this notice and deactivate Jetpack.', 'jetpack' ); ?>"><?php _e( 'Dismiss this notice and deactivate Jetpack.', 'jetpack' ); ?></a>
+				<a class="jetpack-close-button" href="?page=jetpack&jetpack-notice=dismiss" title="<?php _e( 'Dismiss this notice and deactivate SO Jetpack Stats Only.', 'jetpack' ); ?>"><?php _e( 'Dismiss this notice and deactivate SO Jetpack Stats Only.', 'jetpack' ); ?></a>
 			</div>
 			<div class="jetpack-wrap-container">
 				<div class="jetpack-text-container">
@@ -2105,21 +2107,21 @@ p {
 			$this->error = __( 'Cheatin&#8217; uh?', 'jetpack' );
 			break;
 		case 'access_denied' :
-			$this->error = __( 'You need to authorize the Jetpack connection between your site and WordPress.com to enable the Stats module.', 'jetpack' );
+			$this->error = __( 'You need to authorize the connection between your site and WordPress.com to enable the Stats module.', 'jetpack' );
 			break;
 		case 'wrong_state' :
-			$this->error = __( 'You need to stay logged in to your WordPress blog while you authorize Jetpack.', 'jetpack' );
+			$this->error = __( 'You need to stay logged in to your WordPress blog while you authorize SO Jetpack Stats Only.', 'jetpack' );
 			break;
 		case 'invalid_client' :
 			// @todo re-register instead of deactivate/reactivate
-			$this->error = __( 'Return to sender.  Whoops! It looks like you got the wrong Jetpack in the mail; deactivate then reactivate the Jetpack plugin to get a new one.', 'jetpack' );
+			$this->error = __( 'Return to sender.  Whoops! It looks like you got the wrong SO Jetpack Stats Only in the mail; deactivate then reactivate the SO Jetpack Stats Only plugin to get a new one.', 'jetpack' );
 			break;
 		case 'invalid_grant' :
-			$this->error = __( 'Wrong size.  Hm&#8230; it seems your Jetpack doesn&#8217;t quite fit.  Have you lost weight? Click &#8220;Connect to WordPress.com&#8221; again to get your Jetpack adjusted.', 'jetpack' );
+			$this->error = __( 'Wrong size.  Hm&#8230; it seems your SO Jetpack Stats Only doesn&#8217;t quite fit.  Have you lost weight? Click &#8220;Connect to WordPress.com&#8221; again to get your SO Jetpack Stats Only adjusted.', 'jetpack' );
 			break;
 		case 'site_inaccessible' :
 		case 'site_requires_authorization' :
-			$this->error = sprintf( __( 'Your website needs to be publicly accessible to use Jetpack: %s', 'jetpack' ), "<code>$error</code>" );
+			$this->error = sprintf( __( 'Your website needs to be publicly accessible to use SO Jetpack Stats Only: %s', 'jetpack' ), "<code>$error</code>" );
 			break;
 		case 'module_activation_failed' :
 			$module = Jetpack::state( 'module' );
@@ -2151,24 +2153,24 @@ p {
 				} else {
 					$this->error = sprintf( __( '%s was not deactivated.' , 'jetpack' ), $module_name );
 				}
-				$this->error .= '  ' . sprintf( __( 'This module can only be altered by %s, the user who initiated the Jetpack connection on this site.' , 'jetpack' ), esc_html( $master_userdata->display_name ) );
+				$this->error .= '  ' . sprintf( __( 'This module can only be altered by %s, the user who initiated the SO Jetpack Stats Only connection on this site.' , 'jetpack' ), esc_html( $master_userdata->display_name ) );
 
 			} else {
 				$this->error = sprintf( __( 'Only the user who initiated the Jetpack connection on this site can toggle %s, but that user no longer exists. This should not happen.', 'jetpack' ), $module_name );
 			}
 			break;
 		case 'not_public' :
-			$this->error = __( '<strong>Your Jetpack has a glitch.</strong> Connecting this site with WordPress.com is not possible. This usually means your site is not publicly accessible (localhost).', 'jetpack' );
+			$this->error = __( '<strong>SO Jetpack Stats Only has a glitch.</strong> Connecting this site with WordPress.com is not possible. This usually means your site is not publicly accessible (localhost).', 'jetpack' );
 			break;
 		case 'wpcom_408' :
 		case 'wpcom_5??' :
 		case 'wpcom_bad_response' :
 		case 'wpcom_outage' :
-			$this->error = __( 'WordPress.com is currently having problems and is unable to fuel up your Jetpack.  Please try again later.', 'jetpack' );
+			$this->error = __( 'WordPress.com is currently having problems and is unable to connect SO Jetpack Stats Only.  Please try again later.', 'jetpack' );
 			break;
 		case 'register_http_request_failed' :
 		case 'token_http_request_failed' :
-			$this->error = sprintf( __( 'Jetpack could not contact WordPress.com: %s.  This usually means something is incorrectly configured on your web host.', 'jetpack' ), "<code>$error</code>" );
+			$this->error = sprintf( __( 'SO Jetpack Stats Only could not contact WordPress.com: %s.  This usually means something is incorrectly configured on your web host.', 'jetpack' ), "<code>$error</code>" );
 			break;
 		default :
 			if ( empty( $error ) ) {
@@ -2208,7 +2210,7 @@ p {
 		case 'verify_secrets_missing' :
 		case 'verify_secrets_mismatch' :
 			$error = esc_html( $error );
-			$this->error = sprintf( __( '<strong>Your Jetpack has a glitch.</strong>  Something went wrong that&#8217;s never supposed to happen.  Guess you&#8217;re just lucky: %s', 'jetpack' ), "<code>$error</code>" );
+			$this->error = sprintf( __( '<strong>SO Jetpack Stats Only has a glitch.</strong>  Something went wrong that&#8217;s never supposed to happen.  Guess you&#8217;re just lucky: %s', 'jetpack' ), "<code>$error</code>" );
 			if ( ! Jetpack::is_active() ) {
 				$this->error .= '<br />';
 				$this->error .= sprintf( __( 'Try connecting again.', 'jetpack' ) );
@@ -2687,7 +2689,7 @@ p {
 
 			<?php if ( isset( $_GET['jetpack-notice'] ) && 'dismiss' == $_GET['jetpack-notice'] ) : ?>
 				<div id="message" class="error">
-					<p><?php _e( 'Jetpack is network activated. Notices cannot be dismissed.', 'jetpack' ); ?></p>
+					<p><?php _e( 'SO Jetpack Stats Only is network activated. Notices cannot be dismissed.', 'jetpack' ); ?></p>
 				</div>
 			<?php endif; ?>
 
@@ -2701,7 +2703,7 @@ p {
 				<div class="jetpack-wrap-container">
 					<div class="jetpack-text-container">
 						<h4>
-							<p><?php _e( 'To use Jetpack please contact your WordPress administrator to connect it for you.', 'jetpack' ) ?></p>
+							<p><?php _e( 'To use SO Jetpack Stats Only please contact your WordPress administrator to connect it for you.', 'jetpack' ) ?></p>
 						</h4>
 					</div>
 				</div>
@@ -2760,10 +2762,10 @@ p {
 			}
 
 			echo '<p><strong>' . __( 'IMPORTANT:', 'so-jetpack-stats-only' ) . '</strong></p>';
-			printf( '<p>' . __( '<em>SO Jetpack Stats Only</em> is a fork of <em><a href="%1$s">Jetpack 2.9.3</a></em>.', 'so-jetpack-stats-only' ) . '</p>' ,
+			printf( '<p>' . __( '<strong>SO Jetpack Stats Only</strong> is a fork of <em><a href="%1$s">Jetpack 2.9.3</a></em>.', 'so-jetpack-stats-only' ) . '</p>' ,
 				'http://plugins.svn.wordpress.org/jetpack/tags/2.9.3/'
 			);
-			echo '<p>' . __( 'The fork does not add any functionality to Jetpack itself, it merely removes the bloat that ships with Jetpack by default.', 'so-jetpack-stats-only' ) . '</p>';
+			echo '<p>' . __( 'The fork does not add any functionality to Jetpack itself, it merely removes the bloat that ships with Jetpack by default, so all that is left is the Stats Module.', 'so-jetpack-stats-only' ) . '</p>';
 			printf( '<p>' . __( 'If you have a Jetpack Stats related problem it is therefore best to first check <a href="%s">Jetpack</a> itself.', 'so-jetpack-stats-only' ) . '</p>' ,
 				'http://jetpack.me/support/'
 			);
@@ -2813,7 +2815,7 @@ p {
 			<div id="jp-footer">
 				<p class="automattic"></p>
 				<p class="small">
-					<a href="http://so-wp.com/?p=71" target="_blank">SO Jetpack Stats Only <?php echo esc_html( JETPACK__VERSION ); ?></a> |
+					<a href="http://so-wp.com/?p=71" target="_blank"><?php _e( 'SO Jetpack Stats Only', 'so-jetpack-stats-only' ); ?></a> |
 					<a href="http://automattic.com/privacy/" target="_blank"><?php _e( 'Automattic Privacy Policy', 'so-jetpack-stats-only' ); ?></a> |
 					<a href="http://wordpress.com/tos/" target="_blank"><?php _e( 'WP.com Terms of Service', 'so-jetpack-stats-only' ); ?></a> |
 					<a href="https://github.com/senlin/so-jetpack-stats-only/issues" target="_blank"><?php _e( 'SO Jetpack Stats Only Support', 'so-jetpack-stats-only' ); ?></a>
@@ -3115,7 +3117,7 @@ p {
 			<div class="jetpack-wrap-container">
 				<div class="jetpack-text-container">
 					<h3><?php _e( 'Something is being cranky!', 'jetpack' ); ?></h3>
-					<p><?php _e( 'Your site is configured to only permit SSL connections to Jetpack, but SSL connections don\'t seem to be functional!', 'jetpack' ); ?></p>
+					<p><?php _e( 'Your site is configured to only permit SSL connections to SO Jetpack Stats Only, but SSL connections don\'t seem to be functional!', 'jetpack' ); ?></p>
 				</div>
 			</div>
 		</div>
@@ -3722,7 +3724,7 @@ p {
 
 		$token = Jetpack_Data::get_access_token( JETPACK_MASTER_USER );
 		if ( ! $token || empty( $token->secret ) ) {
-			wp_die( __( 'You must connect your Jetpack plugin to WordPress.com to use this feature.' , 'jetpack' ) );
+			wp_die( __( 'You must connect the SO Jetpack Stats Only plugin to WordPress.com to use this feature.' , 'jetpack' ) );
 		}
 
 		$die_error = __( 'Someone may be trying to trick you into giving them access to your site.  Or it could be you just encountered a bug :).  Either way, please close this window.', 'jetpack' );
